@@ -1,0 +1,81 @@
+nav {
+  // use display flex to get menu to align to right
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  // make nav start off the page (above)
+
+  animation: 2s slideDownNav ease-out 1 0s forwards;
+
+  // slide in navigation from top on page load and add forwards so it remains in the final animation state
+
+  ul {
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+    position: relative;
+    a {
+      background: #000;
+      display: block;
+      padding: 30px;
+      text-decoration: none;
+      text-transform: lowercase;
+      color: #fff;
+    }
+    a:hover {
+      background: #222;
+    }
+    ul{
+      position: absolute;
+      padding: 10px 0 0 0;
+    }
+    // nested dropdown
+    li {
+      background: #000;
+      display: block;
+      margin-left: -20px;
+      text-align: left;
+      a{
+        display: block;
+        padding: 15px 70px 15px 50px;
+        color: #ccc;
+      }
+    }
+  }
+  //use psuedo class to target the 3rd li in the list and display it's dropdown differently
+  li:nth-of-type(3){
+    ul {
+      display: block;
+      // absolutely position the ul so that it doesn't distort parent spacing
+      position: absolute;
+      // pull dropdown off screen to start
+      top: -300px;
+      // top animations will only work if height is set
+      height: 200px;
+      z-index: -10;
+      // add animation to make dropdown slide back up when hover is off
+       animation: 2s dropdownslideup ease-out 1 1s;
+    }
+    li {
+      // add styles to prevent flash of unpositioned content
+      max-height: 0;
+      transition: ease .5s all;
+
+    }
+  }
+  // when hovering over the 3rd li item
+  li:nth-of-type(3):hover{
+    ul {
+      // top is distance from top of page and = to the height of the header
+      top: 4em;
+      // add animation to slide in from top when hovering
+     animation: 2s dropdownslidedown ease-out 1 0s;
+    }
+    // for height transitions to work, you need to set an arbitrary max height that's greater than your actual height. Unexpected quirk
+    li {
+      max-height: 800px;
+
+    }
+  } 
+}

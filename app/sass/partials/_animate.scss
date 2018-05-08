@@ -1,0 +1,47 @@
+@keyframes slideDownNav{
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes dropdownslideup{
+	0%{
+      top: 4em;
+	}
+	100%{
+      top: -300px;
+	}
+}
+@keyframes dropdownslidedown{
+	0% {
+      top: -300px;
+	}
+	100% {
+      top: 4em;
+	}
+ }
+ @keyframes iconScale{
+ 	0%{ 
+ 		padding: 34px;
+ 		opacity: 0;
+
+ 	}
+ 	80%{
+ 		opacity: .5;
+ 	}
+ 	100%{
+ 		padding: 0;
+ 		opacity: 1;
+ 	}
+ }
+ @keyframes slideRight{
+ 	0%{
+       transform: translateX(-100%);
+ 	}
+ 	100%{
+ 		transform: translateX(0);
+
+ 	}
+ }

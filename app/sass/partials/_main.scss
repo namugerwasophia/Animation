@@ -1,0 +1,176 @@
+body {
+	background: white;
+	font-family: 'Mukta Mahee', sans-serif;
+}
+header {
+  background: #000;
+  // display flex to put logo and nav next to each other
+  display: flex;
+  align-items: center;
+  // position fixed to keep at top of page on scroll
+  position: fixed;
+  top: 0;
+  width: 100%;
+  // set z-index to keep above content
+  z-index: 10;
+  .logo {
+    max-height: 4em;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+}
+main{
+  .grid{
+    // use flex to place grids next to each other
+    display: flex;
+    // move from top of page caused by fixing header
+    margin-top: 4em;
+    text-align: center;
+    // the greater than symbol is used to indicate the first child of the parent. Excluding it would change styles of all subsiquently nested divs. 
+    > div{
+      background: -webkit-linear-gradient(rgba(17,179,77,0.9) 0%, rgba(5,104,57,0.9) 100%);
+      // make position relative for full link to take up space since this div is the link's parent
+      position: relative;
+      width: 100%;
+      padding: 50px 0 70px;
+      // add a transition to change the background on hover (transition belongs on pre hover state)
+  
+      h2{
+        font-size: 40px;
+        font-weight: 100;
+        letter-spacing: 10px;
+        color: white;
+        // grow the text to bold when div is hovered (transitions always belong on the pre hover state)
+        transition:  all .5s ease;
+
+      }
+      .icon-container {
+        max-width: 150px;
+        width: auto;
+        height: 150px;
+        padding: 34px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        // start with an opacity of 0 so it fades in
+        opacity: 0; 
+        // animate the icon on hover
+        animation: 2s iconScale 1 0s ease-out forwards;
+
+      }
+      img {
+        // constrain the image so that it's responsive but also has a max height
+        max-width: 100%;
+        max-height: 150px;   
+      }
+      a{
+        background: black;
+        display: inline-block;
+        padding: 10px 20px 8px;
+        border-radius: 20px;
+        margin-top: 23px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #fff;
+        // make the view more link fade to white on hover
+        transition: ease all .5s;
+
+      }
+      // fill the full block with link so that clicking anywhere takes you to the designated locaition
+      a.full-link{
+        background: transparent;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+    // add background to the second block with last of type
+    > div:last-of-type{
+      background:-webkit-linear-gradient(rgba(255,216,17,0.9) 0%, rgba(168,131,19,0.9) 100%);
+    }
+    // add hover states of div
+    div:hover {
+      background: -webkit-linear-gradient(rgba(5,104,57,0.9) 0%, rgba(17,179,77,0.9) 100%);
+      h2{
+        font-weight: 800;
+      }
+      // use first-of-type to seperate this link from the small one
+      a:first-of-type{
+        background: white;
+        color: black;
+      }
+    }
+    div:last-of-type:hover{
+      background:-webkit-linear-gradient(rgba(168,131,19,0.9) 0%, rgba(255,216,17,0.9) 100%);
+    }
+  }
+  article{
+    padding: 40px;
+    h1{
+      position: relative;
+      // position off the page to start
+      transform: translateX(-100%);
+      margin-bottom: 0;
+      // add animation to slide in content from left
+      animation: 3s slideRight 1 0s ease-out forwards;
+
+    }
+    h2{
+      // position the h2 so that it sits on the right side of the page
+      position: absolute;
+      top: 7.4em;
+      right: 10px;
+      padding: 10px 26px 10px 8em;
+      border-top: 5px solid #eee;
+      letter-spacing: 3px;
+      // rotate the text
+       transform: rotate(-90deg);
+       transform-origin: bottom right;
+      // rotate the text using the bottom right point as the point of origin
+
+      // chance second half to white
+      span{
+        color: white;
+      }
+    }
+    p{
+      position: relative;
+      // position off the page to start
+      transform: translateX(-100%);
+      max-width: 1000px;
+      line-height: 1.4em;
+    }
+    p:first-of-type:first-letter{
+      // make the first letter giant with a border
+      display: inline-block;
+      padding: 0 30px;
+      border: 1px solid black;
+      margin: 10px 10px 0 0;
+      box-sizing: border-box;
+      vertical-align: bottom;
+      font-size: 50px;
+      line-height: 90px;
+    }
+    .p1{
+      // animate the paragraph to slide in from left
+      animation: 3s slideRight 1 .3s ease-out forwards;
+
+    }
+    .p2{
+      // animate the paragraph to slide in from left
+      animation: 3s slideRight 1 .6s ease-out forwards;
+    }
+    .p3{
+      // animate the paragraph to slide in from left
+     animation: 3s slideRight 1 .9s ease-out forwards;
+    }
+  }
+}
+footer{
+  background: #333;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
